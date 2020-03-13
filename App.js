@@ -1,29 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-
-const logo = require('./src/imgs/logo.png');
-const btnJogar = require('./src/imgs/botao_jogar.png');
-const btnSobreJogo = require('./src/imgs/sobre_jogo.png');
-const btnOutrosJogos = require('./src/imgs/outros_jogos.png');
+import { StyleSheet } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
+import Principal from './src/components/Principal';
+import Sobre from './src/components/Sobre';
+import Outros from './src/components/Outros';
 
 export default function App() {
   return (
-    <View style={ styles.container }>
-      
-      <View style={ styles.apresentacaoJogo }>
-        <Image source = { logo }/>
-        <Image source = { btnJogar }/>
 
-      </View>
-
-
-      <View style={ styles.rodape }>
-        <Image source = { btnSobreJogo }/>
-        <Image source = { btnOutrosJogos }/>
-        
-      </View>
-      
-    </View>
+    <Router>
+      <Scene key='principal' component={Principal} initial />
+      <Scene key='sobre' component={Sobre} />
+      <Scene key='outros' component={Outros} />
+    </Router>
   );
 }
 
